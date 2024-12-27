@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-name-here
+  namespace: argocd
+spec:
+  project: development_or_production
+  source:
+    repoURL: repo-url-here
+    targetRevision: main
+    path: path-to-helm-chart
+    plugin:
+      name: argocd-vault-plugin-helm
+      env:
+        - name: HELM_ARGS
+          value: -f branch_here.yaml
+  destination:
+    server: which_server_here
+    namespace: namespace_here
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,2 @@
+### Note
+- The fucking secrets.yaml content was wrong, after fail over 100 builds ++, i made it works by just simple read document over and over again. I still wonder why i'm not do it from the beginning?

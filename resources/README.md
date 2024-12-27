@@ -1,0 +1,1 @@
+## Define resource for shared library here!

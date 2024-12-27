@@ -1,0 +1,5 @@
+# Those thing should not include to image when building!
+gitleaks_report.html
+gitleaks_report.json
+k8s-manifest/
+k8s-manifest@tmp/

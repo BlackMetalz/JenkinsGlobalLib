@@ -1,0 +1,6 @@
+{
+  "clusters": {
+    "kienlt-rke2-production": "https://10.3.104.96:6443",
+    "kienlt-rke1-development": "https://kubernetes.default.svc"
+  }
+}
