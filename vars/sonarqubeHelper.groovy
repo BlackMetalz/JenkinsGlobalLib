@@ -9,7 +9,7 @@ def createSonarqubeProperties(Map params) {
     } else {
         Date date = new Date()
         String dateTime = date.format("yyyy-MM-dd_HH-mm-ss")
-        writeFile file: 'sonar-project.properties', text: libraryResource('kienlt/sonarqube/default-sonar-project.properties')
+        writeFile file: 'sonar-project.properties', text: libraryResource('sonarqube/default-sonar-project.properties')
     }
     
     /*
