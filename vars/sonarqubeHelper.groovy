@@ -9,6 +9,9 @@ def createSonarqubeProperties(Map params) {
     } else {
         // Load the SonarQube properties template
         def sonarPropertiesTemplate = libraryResource('sonarqube/default-sonar-project.properties')
+        // Get the current date and time
+        Date date = new Date()
+        String dateTime = date.format("yyyy-MM-dd_HH-mm-ss")
 
         // Replace placeholders with actual values
         def sonarProperties = sonarPropertiesTemplate
