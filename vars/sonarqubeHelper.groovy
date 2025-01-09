@@ -7,9 +7,17 @@ def createSonarqubeProperties(Map params) {
         echo "sonar-project.properties already exists"
         return
     } else {
-        Date date = new Date()
-        String dateTime = date.format("yyyy-MM-dd_HH-mm-ss")
-        writeFile file: 'sonar-project.properties', text: libraryResource('sonarqube/default-sonar-project.properties')
+        // Load the SonarQube properties template
+        def sonarPropertiesTemplate = libraryResource('sonarqube/default-sonar-project.properties')
+
+        // Replace placeholders with actual values
+        def sonarProperties = sonarPropertiesTemplate
+            .replace('${params.projectName}', params.projectName)
+            .replace('${params.branchName}', params.branchName)
+            .replace('${dateTime}', dateTime)
+
+        // Write the properties to a file
+        writeFile file: 'sonar-project.properties', text: sonarProperties
     }
     
     /*
