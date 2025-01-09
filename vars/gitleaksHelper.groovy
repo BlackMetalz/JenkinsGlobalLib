@@ -8,7 +8,6 @@ def scanSecretsLeak(Map config = [:]) {
         reportFormat: 'json',
         reportPath: 'gitleaks_report.json',
         configPath: '',          // Optional custom config file
-        verbose: true,
         failOnError: true,
         excludePaths: [],
         maxTargetMB: 5,         // Max file size in MB to scan
@@ -27,16 +26,13 @@ def scanSecretsLeak(Map config = [:]) {
         def cmd = """
             gitleaks detect \
             --source . \
+            --no-git \
             --report-format ${config.reportFormat} \
             --report-path ${config.reportPath} \
             --max-target-megabytes ${config.maxTargetMB}
         """
         
-        // Add optional flags based on configuration
-        if (config.verbose) {
-            cmd += " --verbose"
-        }
-        
+
         if (config.configPath) {
             cmd += " --config ${config.configPath}"
         }
