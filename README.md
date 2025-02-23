@@ -20,6 +20,7 @@
 - Build Name and Description Setter
 - Sonarqube / Quality Gates Plugin / Sonar Gerrit Plugin / SonarQube Generic Coverage Plugin / SonarQube Scanner for Jenkins /Sonar Quality Gates Plugin
 - Pipeline Utility Steps (if not `No such DSL method 'readJSON' found among steps` )
+- HTML Publisher (for OWASP - ZAP report)
 
 ### Required softwares/binary for this shared library
 - `trivy`: `/usr/local/bin/trivy --version` ==> Version: 0.51.1 (maybe can higher since last time i download was more than 6 months ago.)
@@ -46,4 +47,10 @@ tar -xzf gitleaks_*_linux_x64.tar.gz
 chmod +x gitleaks-linux-x64
 # Move to path1
 sudo mv gitleaks-linux-x64 /usr/local/bin/gitleaks
+```
+
+### Agent requirements
+- Required packages
+```
+jq docker
 ```
